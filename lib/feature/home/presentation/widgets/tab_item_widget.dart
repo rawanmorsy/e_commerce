@@ -1,9 +1,9 @@
-import 'package:e_commerce/feature/home/data/model/response/category_response_dto.dart';
+import 'package:e_commerce/feature/home/domain/entities/category_entity.dart';
 import 'package:flutter/material.dart';
 
 class TabItemWidget extends StatelessWidget {
   const TabItemWidget({super.key, required this.category});
-  final CategoryResponseDto category;
+  final CategoryEntity category;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class TabItemWidget extends StatelessWidget {
         ),
       ),
       child: Text(
-        category.name ?? "NULL",
+        category.name ,
         style: TextStyle(
           color: Color(0xff212121),
           fontSize: 16,

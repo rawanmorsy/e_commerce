@@ -1,7 +1,6 @@
-import 'dart:developer';
 
-import 'package:e_commerce/feature/home/data/model/response/category_response_dto.dart';
-import 'package:e_commerce/feature/home/data/model/response/product_response_dto.dart';
+import 'package:e_commerce/feature/home/domain/entities/category_entity.dart';
+import 'package:e_commerce/feature/home/domain/entities/product_entity.dart';
 import 'package:e_commerce/feature/home/presentation/view_model/home_cubit/home_cubit.dart';
 import 'package:e_commerce/feature/home/presentation/widgets/product_item.dart';
 import 'package:e_commerce/feature/home/presentation/widgets/tab_container_widget.dart';
@@ -17,11 +16,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        List<CategoryResponseDto> categories = context
+        List<CategoryEntity> categories = context
             .read<HomeCubit>()
             .categories;
-        List<ProductResponseDto> products = context.read<HomeCubit>().products;
-        log(products.toString());
+        List<ProductEntity> products = context.read<HomeCubit>().products;
         return Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
           child: Column(

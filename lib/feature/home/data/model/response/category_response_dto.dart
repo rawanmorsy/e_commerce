@@ -1,3 +1,5 @@
+import 'package:e_commerce/feature/home/domain/entities/category_entity.dart';
+
 class CategoryResponseDto {
   int? id;
   String? name;
@@ -22,6 +24,14 @@ class CategoryResponseDto {
     creationAt = json['creationAt'];
     updatedAt = json['updatedAt'];
   }
+   //! adapter
+  CategoryEntity toEntity() => CategoryEntity(
+        id: id??0,
+        name: name??'',
+        slug: slug??'',
+        image: image??'',
+       
+      );
 
  
 }

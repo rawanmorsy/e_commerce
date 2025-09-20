@@ -1,6 +1,8 @@
 import 'package:e_commerce/feature/cart/view/cart_screen.dart';
 import 'package:e_commerce/feature/favorite/view/favorite_screen.dart';
 import 'package:e_commerce/feature/home/data/repo/repository/home_repository_imp.dart';
+import 'package:e_commerce/feature/home/domain/use_case/get_category_use_case.dart';
+import 'package:e_commerce/feature/home/domain/use_case/get_product_use_case.dart';
 import 'package:e_commerce/feature/home/presentation/view/home_screen.dart';
 import 'package:e_commerce/feature/home/presentation/view_model/home_cubit/home_cubit.dart';
 import 'package:e_commerce/feature/profile/view/profile_screen.dart';
@@ -19,7 +21,7 @@ class AppSection extends StatefulWidget {
 class _AppSectionState extends State<AppSection> {
   List<Widget> widgetList = [
     BlocProvider(
-      create: (context) => HomeCubit(homeRepoInjectable())
+      create: (context) => HomeCubit(injectGetCategoryUseCase(),injectableGetProductUseCase())
         ..getAllProducts()
         ..getAllCategories(),
       child: HomeScreen(),
